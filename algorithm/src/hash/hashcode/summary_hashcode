@@ -1,0 +1,110 @@
+一，java  hashCode()的官方定义：
+          1，Java Object hashCode() is a native method and returns the integer hash code value of the object.
+                (Java对象hashCode()是一个本机方法，返回对象的整数哈希码值（Hash code）。)
+
+                hashCode:  是一串固定长度的整型的数字，hashCode可以由hash函数生成。hash函数常用的算法有：直接取余法、乘法取整法、平方取中法等。由hashCode可以得到对象在hash表中的位置。
+
+
+          2，Hashcode value is mostly used in hashing based collections like HashMap, HashSet, HashTable….etc
+                (Hashcode值主要用于基于散列的集合，如HashMap、HashSet、HashTable)
+
+          3，This method must be overridden in every class which overrides equals() method.
+               (如果重写equals()方法的类，那么hashCode() 也必须要重写,否则就会违反Object.hashCode的通用约定)
+
+
+          4， The general contract of hashCode() method is:
+                (hashCode() 的特性)
+                4.1，Multiple invocations of hashCode() should return the same integer value, unless the object property is modified that is being used in the equals() method
+                        (多次调用hashCode() 方法应该返回同样的integer 类型的值，除非对象的属性已经被修改过，这个特性也被应用equals()方法)
+
+                4.2，An object hash code value can change in multiple executions of the same application.
+                        (一个对象的hash 值可以在同一个应用程序的多次执行中被更改)
+
+                4.3，If two objects are equal according to equals() method, then their hash code must be same.
+                        (如果两个对象通过equals() 比较结果相同，那么它们的hashCode() 返回值则一定相同 )
+
+
+                 4.4，If two objects are unequal according to equals() method, their hash code are not required to be different. Their hash code value may or may-not be equal.
+                        (如果两个对象通过equals()方法比较结果: 不相同， 那它们的hash code 不一定是不同的，其有可能不同，有可能相同)
+
+
+
+二， equals()和 hashCode() 的重要性
+
+          1， The implementation of equals() and hashCode() should follow these rules.
+                 (实现equals(), hashCode() 需要遵循以下规则)
+
+                  1.1， If o1.equals(o2), then o1.hashCode() == o2.hashCode()     should always be true.
+
+                  1.2，If o1.hashCode() == o2.hashCode is true,   it doesn’t mean that o1.equals(o2) will be true.
+
+
+
+三，什么是 Hash 冲突/碰撞
+          In very simple terms, Java Hash table implementations uses following logic for get and put operations.
+          (简单来说，Java哈希表实现对get和put操作使用以下逻辑。)
+
+          1,First identify the “Bucket” to use using the “key” hash code.
+            (首先使用hash code 的键值: key 识别存储桶)
+
+          2,If there are no objects present in the bucket with same hash code, then add the object for put operation and return null for get operation.
+            (如果存储桶中不存在相同hash code值的对象，那么为put 操作添加对象;  为get操作返回 null)
+
+          3,If there are other objects in the bucket with same hash code, then “key” equals method comes into play
+              (如果存储桶中有相同hash code 值的对象， 那么key 相同的方法就起到了作用)
+
+                  3.1,If equals() return true and it’s a put operation, then object value is overridden.
+                        (如果equals()返回true，并且它是put 操作，那么对象的值将被覆盖)
+
+                  3.2,If equals() return false and it’s a put operation, then new entry is added to the bucket.
+                        (如果equals()返回false，并且它是put操作，那么新的条目被添加进存储桶)
+
+                  3.3,If equals() return true and it’s a get operation, then object value is returned.
+                       (如果equals()返回true，并且它是get操作，那么对象的值将被返回)
+
+                  3.4,If equals() return false and it’s a get operation, then null is returned.
+                       (如果equals() 返回false，并且它是get操作，那么将返回null)
+
+
+
+
+四，HashCode 的作用
+
+
+         问题场景：
+                   Java中的集合有两类，一类是List，再有一类是Set。前者集合内的元素是有序的，元素可以重复；后者元素无序，但元素不可重复。 equals方法可用于保证元素不重复，但如果每增加一个元素就检查一次，若集合中现在已经有1000个元素，那么第1001个元素加入集合时，就要调用1000次equals方法。这显然会大大降低效率。 于是，Java采用了哈希表的原理。
+
+         HashCode在场景中的作用:
+                  哈希算法也称为散列算法，是将数据依特定算法直接指定到一个地址上。这样一来，当集合要添加新的元素时，先调用这个元素的HashCode方法，就一下子能定位到它应该放置的物理位置上。
+
+         如何理解HashCode的作用：
+                 从Object角度看，JVM每new 一个Object，它都会将这个Object丢到一个Hash表中去，这样的话，下次做Object的比较或者取这个对象的时候（读取过程），它会根据对象的HashCode 再从Hash表中取这个对象。这样做的目的就是提高取对象的效率，若HashCode相同再去调用equals()
+
+          具体表现：
+
+                 1，如果这个位置上没有元素，它就可以直接存储在这个位置上，不用在进行任何比较了
+                 2，如果这个位置上已经有了元素，就调用它的equals()方法与新元素进行比较，相同的话就不存了。
+                 3，不相同的，也就发生了 Hash key 相同导致的冲突情况，那么就在这个Hash key 的地方产生一个链表，将所有产生相同HashCode的对象放到这个单链表上去，串在一起。这样一来实际调用equals()方法的次数就大大降低了，几乎只需要两次。
+
+
+
+
+
+五，总结与实践（hashCode是用于查找使用的，而equals是用于比较两个对象的是否相等的。）
+
+
+          1.hashcode是用来查找的，如果你学过数据结构就应该知道，在查找和排序这一章有
+          例如内存中有这样的位置
+          0  1  2  3  4  5  6  7
+          而我有个类，这个类有个字段叫ID,我要把这个类存放在以上8个位置之一，如果不用hashcode而任意存放，那么当查找时就需要到这八个位置里挨个去找，或者用二分法一类的算法。
+          但如果用hashcode那就会使效率提高很多。
+          我们这个类中有个字段叫ID,那么我们就定义我们的hashcode为ID％8，然后把我们的类存放在取得得余数那个位置。比如我们的ID为9，9除8的余数为1，那么我们就把该类存在1这个位置，如果ID是13，求得的余数是5，那么我们就把该类放在5这个位置。这样，以后在查找该类时就可以通过ID除 8求余数直接找到存放的位置了。
+
+          2.但是如果两个类有相同的hashcode怎么办那（我们假设上面的类的ID不是唯一的），例如9除以8和17除以8的余数都是1，那么这是不是合法的，回答是：可以这样。那么如何判断呢？在这个时候就需要定义 equals了。
+          也就是说，我们先通过 hashcode来判断两个类是否存放某个桶里，但这个桶里可能有很多类，那么我们就需要再通过 equals 来在这个桶里找到我们要的类。
+          那么。重写了equals()，为什么还要重写hashCode()呢？
+          想想，你要在一个桶里找东西，你必须先要找到这个桶啊，你不通过重写hashcode()来找到桶，光重写equals()有什么用啊
+
+
+
+

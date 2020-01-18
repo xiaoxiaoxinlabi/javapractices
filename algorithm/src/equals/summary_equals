@@ -1,0 +1,21 @@
+1，java约定equals()方法必须是一种等价关系，它必须具有以下性质：
+    自反性：x.equals(x) 为true
+    对称性：当且仅当y.equals(x)为true 时，x.equals(y) 为true;
+    传递性：如果x.equals(y) 和 y.equals(z) 均为true，那么 x.equals(z) 也为true
+
+    另外，它必须接受一个Object 为参数并满足以下性质：
+      一致性：当两个对象均未被修改时，反复调用x.equals(y) 总是会返回相同的值；
+      非空性：x.equals(null)  总是返回false
+
+
+2，重写equals方法需遵循 1 中的性质的同时，有避免在实现时做无用功，所以：
+    如果对象的引用和参数对象的引用相同，返回true;
+    如果参数为空（null），根据约定返回 false
+    如果两个对象的类不同，则返回false
+    将参数对象的类型从Object 转换成具体的对象类型
+    如果任意实例变量的值不相同，返回false
+
+
+
+
+ 3，equals(): 方法可用于保证元素不重复
