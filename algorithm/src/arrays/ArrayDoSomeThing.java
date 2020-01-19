@@ -1,6 +1,9 @@
 package arrays;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 //找出数组中的最大值
 public class ArrayDoSomeThing {
 
@@ -133,6 +136,9 @@ public class ArrayDoSomeThing {
     double [] da = {1,2,3,9.9};
 
     double [][] doublea = {{1,2,1},{4,3,1}};
+
+    Map map = new HashMap<Integer, Integer>();
+    map.put(1,1);
 
 
 

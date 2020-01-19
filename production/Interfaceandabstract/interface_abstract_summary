@@ -31,68 +31,34 @@
 
 
   1,Type of methods:
-      方法类型
-
           interface: Interface can have only abstract methods.
-                         接口只能有抽象方法
           abstract: Abstract class can have abstract and non-abstract methods. From Java 8, it can have default and static methods also.
-                        抽象类可以有抽象方法，非抽象方法， Java 8 中 可以有default 和 static 的方法；
 
   2,Final Variables:
-      final变量
-
           interface: Variables declared in a Java interface are by default final.
-                          接口中的变量默认为：final
           abstract: An abstract class may contain non-final variables.
-                          抽象类中可以有 非final的变量
 
 
   3,Type of variables:
-        变量类型
-
           interface: Interface has only static and final variables.
-                        接口只能有static 或者  final 类型的变量
-
           abstract: Abstract class can have final, non-final, static and non-static variables.
-                        抽象类中可以有final， 非final， static， 非static 的变量
 
 
   4,Implementation:
-        实现
-
           abstract: Abstract class can provide the implementation of interface.
-                        抽象类可以提供接口的实现类
-
           interface: Interface can’t provide the implementation of abstract class.
-                        接口不能提供抽象类的实现类
 
 
   5, Inheritance vs Abstraction:
-
-
           interface: A Java interface can be implemented using keyword “implements”
-                        实现接口需要用关键字： implements
-
           abstract : abstract class can be extended using keyword “extends”.
-                        继承抽象类需要用关键字： extends
-
 
   6,Multiple implementation:
-      多实现
-
           interface: An interface can extend another Java interface only,
-                        接口只能被另一个接口继承
-
           abstract : an abstract class can extend another Java class and implement multiple Java interfaces.
-                        抽象类可以继承另一个Java类， 并实现多个Java接口
-
 
 
   7,Accessibility of Data Members:
-          访问成员类型
-
           interface : Members of a Java interface are public by default.
-                        接口的成员默认是：public 的
-
           abstract : A Java abstract class can have class members like private, protected, etc.
-                        抽象类的成员可以有：private， protected
+
