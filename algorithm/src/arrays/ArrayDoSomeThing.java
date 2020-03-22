@@ -124,6 +124,17 @@ public class ArrayDoSomeThing {
 
   }
 
+//  遍历二维数组
+
+  public static void iteaArray(int[][] arr) {
+
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        System.out.println(arr[i][j] + ", ");
+      }
+    }
+
+  }
 
 
 

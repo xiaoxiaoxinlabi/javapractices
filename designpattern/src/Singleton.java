@@ -14,30 +14,30 @@
 //    Encapsulated "just-in-time initialization" or "initialization on first use".
 
 
-//1，基本写法(懒汉式，线程不安全)
+  //1，基本写法(懒汉式，线程不安全)
 
   //优点： 简单明了，使用了懒加载模式
 //  缺点：当有多个线程并行调用 getInstance() 的时候，就会创建多个实例。也就是说在多线程下不能正常工作。
 
-//public class Singleton {
-//
-//  private static Singleton singleton;
-//
-//  private Singleton(){
-//
-//  }
-//
-////  getInstance()的返回值是一个对象的引用，并不是一个新的实例
-//  public static Singleton getInstance(){
-//
-//    if (singleton == null){
-//      singleton = new Singleton();
-//    }
-//
-//    return singleton;
-//  }
-//
-//}
+public class Singleton {
+
+  private static Singleton singleton;
+
+  private Singleton(){
+
+  }
+
+//  getInstance()的返回值是一个对象的引用，并不是一个新的实例
+  public static Singleton getInstance(){
+
+    if (singleton == null){
+      singleton = new Singleton();
+    }
+
+    return singleton;
+  }
+
+}
 
 
 
@@ -48,24 +48,24 @@
 //优点：做到了线程安全，并解决了多实例的问题
 //缺点：不高效，因为在任何时候只能有一个线程调用getinstance()方法，所以每次调用getinstance都需要进行同步，造成不必要的开销
 
-//public class Singleton{
-//
-//  private  static Singleton instance;
-//
-//  private Singleton{
-//
-//  }
-//
-////  加锁
-//  public static  synchronized  Singleton getInstance(){
-//
-//    if (instance == null){
-//      instance = new Singleton();
-//    }
-//    return instance;
-//
-//  }
-//}
+public class Singleton{
+
+  private  static Singleton instance;
+
+  private Singleton{
+
+  }
+
+//  加锁
+  public static  synchronized  Singleton getInstance(){
+
+    if (instance == null){
+      instance = new Singleton();
+    }
+    return instance;
+
+  }
+}
 
 
 
@@ -155,27 +155,27 @@
 
 
 
-public class Singleton {
-
-  private volatile static Singleton singleton;
-
-  private Singleton(){}
-
-  public static Singleton getInstance(){
-
-//    同步块外检查
-//    为了防止new Singleton被执行多次，因此在new操作之前加上Synchronized 同步锁，锁住整个类（注意，这里不能使用对象锁）。
-    if (singleton == null){
-      synchronized (Singleton.class){
-
-//        同步块内检查
-        if (singleton == null){
-
-          singleton = new Singleton();
-        }
-      }
-    }
-    return singleton;
-  }
+//public class Singleton {
+//
+//  private volatile static Singleton singleton;
+//
+//  private Singleton(){}
+//
+//  public static Singleton getInstance(){
+//
+////    同步块外检查
+////    为了防止new Singleton被执行多次，因此在new操作之前加上Synchronized 同步锁，锁住整个类（注意，这里不能使用对象锁）。
+//    if (singleton == null){
+//      synchronized (Singleton.class){
+//
+////        同步块内检查
+//        if (singleton == null){
+//
+//          singleton = new Singleton();
+//        }
+//      }
+//    }
+//    return singleton;
+//  }
 
 }

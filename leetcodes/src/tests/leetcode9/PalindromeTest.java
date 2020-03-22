@@ -1,4 +1,4 @@
-package tests;
+package tests.leetcode9;
 
 public class PalindromeTest {
 

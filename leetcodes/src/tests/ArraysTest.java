@@ -19,16 +19,16 @@ public class ArraysTest {
 /*
  计算数组元素的平均值
  */
-  public double findTheAverage(double [] arr){
-    int n = arr.length;
-    double sum = 0.0;
-    double average ;
-    for (int i = 0; i < n; i ++){
-      sum += arr[i];
+    public double findTheAverage(double [] arr){
+      int n = arr.length;
+      double sum = 0.0;
+      double average ;
+      for (int i = 0; i < n; i ++){
+        sum += arr[i];
+      }
+      average = sum / n;
+      return average;
     }
-    average = sum / n;
-    return average;
-  }
 
   public double [] copyTheArrays(double [] arr){
     int n = arr.length;

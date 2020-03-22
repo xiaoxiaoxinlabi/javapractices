@@ -66,7 +66,6 @@ public class BucketSort1 {
   }
 
 
-
 //每个元素放入那个桶中的策略
   private int hash(int i , int max, int numberOfBuckets){
 

@@ -7,20 +7,20 @@ public class RotateTest {
 //  解释:
 //  向右旋转 1 步: [99,-1,-100,3]
 //  向右旋转 2 步: [3,99,-1,-100]
-  public void rotate1(int [] nums, int k){
-//    printResults(nums);
-    int n = nums.length;
-    int [] ret = new int [n];
-    for (int i = 0; i < n; i ++){
-//      当前的索引加上移动的位置的值 然后对总长度求余
-      ret[(i+k)%n] = nums[i];
+    public void rotate1(int [] nums, int k){
+  //    printResults(nums);
+      int n = nums.length;
+      int [] ret = new int [n];
+      for (int i = 0; i < n; i ++){
+  //      当前的索引加上移动的位置的值 然后对总长度求余
+        ret[(i+k)%n] = nums[i];
+      }
+      nums  = ret;
+
+  //    printResults(nums);
+
+
     }
-    nums  = ret;
-
-//    printResults(nums);
-
-
-  }
 
 
   public void printResults(int [] nums){

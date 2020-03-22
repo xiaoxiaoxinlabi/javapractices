@@ -1,4 +1,4 @@
-package tests;
+package tests.leetcode1;
 
 public class TwoSumTest1 {
     //    给定一个已按照升序排列 的有序数组，找到两个数使得它们相加之和等于目标数。
@@ -55,7 +55,7 @@ public class TwoSumTest1 {
         TwoSumTest1 twoSumTest1 = new TwoSumTest1();
         int [] arr = {2,7,11,15};
         int target = 9;
-        int [] newArr = twoSumTest1.twoSum2(arr,target);
+        int [] newArr = twoSumTest1.twoSum0(arr,target);
         for (int i: newArr){
             System.out.println(i);
         }

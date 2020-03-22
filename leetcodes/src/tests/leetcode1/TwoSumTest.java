@@ -1,4 +1,4 @@
-package tests;
+package tests.leetcode1;
 
 public class TwoSumTest {
 

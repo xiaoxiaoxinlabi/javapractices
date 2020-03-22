@@ -13,8 +13,6 @@ public class MergeSort {
       return null;
     }
 
-
-
     int mid = lo + (hi - lo) / 2;
 
     //对左子数组进行排序
@@ -29,7 +27,6 @@ public class MergeSort {
 
   }
 
-
   //归并
   public void mergeAll(int [] a, int lo, int mid, int hi){
 
@@ -42,7 +39,6 @@ public class MergeSort {
 
       //        将最小的存入到临时数组中
       if (a[i] < a[j]){
-
 
 
         tmpArr[tmp ++] = a[i++];

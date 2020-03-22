@@ -1,4 +1,4 @@
-package tests;
+package tests.leetcode14;
 
 public class LongestCommonPrefixTest {
 //    Write a function to find the longest common prefix string amongst an array of strings.
