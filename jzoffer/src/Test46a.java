@@ -1,4 +1,4 @@
-public class IntegerToStr {
+public class Test46a {
 
   public static int getTranslation(int number){
 
@@ -8,8 +8,6 @@ public class IntegerToStr {
     if(number == 1){
       return 1;
     }
-
-
     //动态规划，从右到左计算。
     //f(r-2) = f(r-1)+g(r-2,r-1)*f(r);
     //如果r-2，r-1能够翻译成字符，则g(r-2,r-1)=1，否则为0

@@ -33,9 +33,10 @@ public class QuicklySwapSort {
     //将基准位与 left和right相遇位置的元素交换
     a[low] = a[left];
     a[left] = pivot;
+    System.out.println(low +"=="+ left);
 
-    quicklySort(a, low, right - 1);
-    quicklySort(a, right+ 1, high);
+//    quicklySort(a, low, right - 1);
+//    quicklySort(a, right+ 1, high);
 
     return a;
   }

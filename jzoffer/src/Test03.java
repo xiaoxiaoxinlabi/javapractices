@@ -67,7 +67,36 @@ public class Test03 {
 
   }
 
+//  原地删除数组中的重复值
 
+  public void   findRepatNumber03(int [] nums){
+
+    int j = 0;
+    for(int i = 1; i < nums.length; i ++){
+      if(nums[i] != nums[j]){
+        j++;
+        nums[j] = nums[i];
+      }
+    }
+
+
+  }
+
+
+//  删除数组中的重复值，并返回数组
+
+  public int []  findRepatNumber04(int [] nums){
+    int j = 0;
+
+    for(int i = 1; i < nums.length; i ++){
+      if(nums[i] !=nums[j]){
+        j++;
+        nums[j] = nums[i];
+      }
+    }
+
+    return nums;
+  }
 
 
 }

@@ -72,9 +72,9 @@ public class Sorts {
     a[right]=pivot;
 
     //对基准值左边的元素开始递归操作
-    fun2(a,low ,right - 1);
+//    fun2(a,low ,right - 1);
     //对于基准值右边的元素开始递归操作
-    fun2(a,right + 1, hight);
+//    fun2(a,right + 1, hight);
 
     return a;
   }

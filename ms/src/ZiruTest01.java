@@ -1,8 +1,6 @@
-package arrays;
-
 import java.util.ArrayList;
 
-public class Test1 {
+public class ZiruTest01 {
 
   public static void printMatrix(int [] [] arr, int start, int end){
 
