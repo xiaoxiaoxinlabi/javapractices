@@ -69,7 +69,7 @@ public class Test502 {
 
   public static void main(String [] args){
 
-    System.out.println(strToInt("skjdkasjk"));
+    System.out.println(strToInt("1234"));
 
 
 
