@@ -1,5 +1,8 @@
 package tests.leetcode1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSumTest1 {
     //    给定一个已按照升序排列 的有序数组，找到两个数使得它们相加之和等于目标数。
     //    函数应该返回这两个下标值 index1 和 index2，其中 index1 必须小于 index2。
@@ -48,6 +51,24 @@ public class TwoSumTest1 {
             }
         }
         return  index;
+    }
+
+
+    public int [] twoSum3(int [] num, int target){
+
+        int [] res =  new int [2];
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < num.length; i ++){
+            if(map.containsKey(target - num[i])){
+                res[0] = i;
+                res[1] = map.get(target - num[i]);
+            }else{
+                map.put(num[i], i);
+            }
+        }
+
+        return res;
+
     }
 
     public static void main(String [] args){

@@ -64,7 +64,7 @@ public class MT02 {
 
     while(i <=j){
 
-      while(arr[j] != -1 ){
+      while(arr[j] != 0 ){
         j--;
 
       }
@@ -85,7 +85,8 @@ public class MT02 {
 
 
   public static void main(String [] args){
-    int [] arr = {1,-1,1,-1,-1,1};
+//    int [] arr = {1,-1,1,-1,-1,1};
+    int [] arr = {1,0,1,1,0,0};
 //    fun1(arr);
 
 //    fun2(arr, 0, arr.length);
