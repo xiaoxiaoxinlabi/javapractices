@@ -48,6 +48,25 @@ public class StrStrTest {
      return 0;
     }
 
+
+//    方法一：子串逐一比较 - 线性时间复杂度
+//    直接的方法 - 沿着字符换逐步移动滑动窗口，将窗口内的子串与 needle 字符串比较。
+    public int strStr2(String haystack, String needle){
+        int lenN = needle.length(), lenH = haystack.length();
+
+        for(int start = 0; start < lenH - lenN+1; ++start){
+            if(haystack.substring(start, start + lenN).equals(needle)){
+                return start;
+            }
+        }
+
+        return -1;
+
+
+    }
+
+
+
     public static void main(String[] args) {
 
         StrStrTest st = new StrStrTest();
