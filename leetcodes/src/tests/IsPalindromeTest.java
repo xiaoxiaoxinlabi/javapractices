@@ -45,11 +45,44 @@ public class IsPalindromeTest {
     }
 
 
+    public boolean isPalindrome1(String s){
+
+        int count = 0;
+
+        for(int i = 0; i < s.length()/ 2; i ++){
+
+            if(s.charAt(i) == s.charAt(s.length() - i - 1)){
+
+                count++;
+
+            }else{
+
+                return false;
+            }
+
+        }
+
+        if(count == s.length() / 2){
+            return true;
+        }
+
+        return false;
+
+
+
+
+    }
+
+//    输入：字符串
+//    返回： 回文true，  非回文false
+//    如 "abcba" "abccba" 都属于回文
+
+
     public static void main(String[] args) {
 
         IsPalindromeTest isPalindromeTest = new IsPalindromeTest();
 
-        String s =  "A man, a plan, a canal: Panama";
-        System.out.println(isPalindromeTest.isPalindrome(s));
+        String s =  "abcba";
+        System.out.println(isPalindromeTest.isPalindrome1(s));
     }
 }

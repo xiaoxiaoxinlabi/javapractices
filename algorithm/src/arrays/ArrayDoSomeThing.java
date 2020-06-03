@@ -1,6 +1,7 @@
 package arrays;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -136,6 +137,19 @@ public class ArrayDoSomeThing {
 
   }
 
+  //  遍历二维数组: 使用 deepToString()
+  public static void iteaArray1(double[][] arr) {
+
+    System.out.println(Arrays.deepToString(arr));
+
+  }
+
+//  遍历一维数组:  转换成string
+
+  public static void iteaArray0(int [] arr){
+    System.out.println(Arrays.toString(arr));
+  }
+
 
 
 
@@ -151,6 +165,8 @@ public class ArrayDoSomeThing {
     Map map = new HashMap<Integer, Integer>();
     map.put(1,1);
 
+    iteaArray1(doublea);
+    iteaArray0(a);
 
 
 
@@ -160,7 +176,7 @@ public class ArrayDoSomeThing {
 //    System.out.println(arrayDoSomeThing.getAverage(da));
 //    prints(arrayDoSomeThing.copyArray(a));
 //    prints(arrayDoSomeThing.reverseArray(a));
-    prints(arrayDoSomeThing.matrix(doublea));
+//    prints(arrayDoSomeThing.matrix(doublea));
 //    prints(doublea);
 
 
