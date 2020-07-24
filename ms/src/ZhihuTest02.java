@@ -35,12 +35,37 @@ public class ZhihuTest02 {
 
   }
 
+//  输入一个整数数组，实现一个函数来调整该数组中数字的顺序，
+//  使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半
+  public static void fun2(int [] arr){
+
+    int i = 0, j = arr.length-1;
+    while(i < j){
+      if(arr[i] % 2 < arr[j] % 2){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+
+      if(arr[i] % 2 == 1){
+        i++;
+      }
+      if(arr[j] % 2 == 0){
+        j--;
+      }
+    }
+
+    System.out.println(Arrays.toString(arr));
+
+
+  }
+
 
   public static void main(String [] args){
 
     int [] arr = {1,2,3,4,5,6,7,8,9};
 
-    fun1(arr);
+    fun2(arr);
 
 
 

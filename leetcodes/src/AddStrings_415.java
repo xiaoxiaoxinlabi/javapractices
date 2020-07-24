@@ -34,6 +34,7 @@ public class AddStrings_415 {
       res.append(1);
 
     }
+//    最后将结果翻转
     return res.reverse().toString();
 
 
