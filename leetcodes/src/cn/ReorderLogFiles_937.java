@@ -17,6 +17,10 @@ public class ReorderLogFiles_937 {
 //  数字日志 应该按原来的顺序排列。
 //  返回日志的最终顺序。
 
+
+//    Input: logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
+//    Output: ["let1 art can","let3 art zero","let2 own kit dig","dig1 8 1 5 1","dig2 3 6"]
+
   public String [] reorderLogFiles1(String [] logs){
 
     Arrays.sort(logs, (log1, log2) ->{
@@ -24,8 +28,11 @@ public class ReorderLogFiles_937 {
       String [] split2 = log2.split(" ", 2);
       boolean isDigit1 = Character.isDigit(split1[1].charAt(0));
       boolean isDigit2 = Character.isDigit(split2[1].charAt(0));
+//      如果都不是数字
       if(!isDigit1 && !isDigit2){
+//        则按照字典顺序进行比较
         int cmp = split1[1].compareTo(split2[1]);
+//        如果不相等，则返回 比较的值
         if(cmp !=0){
           return cmp;
         }
