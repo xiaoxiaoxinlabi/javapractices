@@ -1,0 +1,21 @@
+Maven 是一个项目管理和构建自动化工具。
+
+常用命令：
+1、mvn compile 编译,将Java 源程序编译成 class 字节码文件。
+2、mvn test 测试，并生成测试报告
+3、mvn clean 将以前编译得到的旧的 class 字节码文件删除
+4、mvn pakage 打包,动态 web工程打 war包，Java工程打 jar 包。
+5、mvn install 将项目生成 jar 包放在仓库中，以便别的模块调用
+
+maven 相关概念
+POM (Project Object Model)
+    一个项目所有的配置都放置在 POM 文件中：定义项目的类型、名字，管理依赖关系，定制插件的行为等等。
+Maven 插件
+    它把构建的任务交给插件去做。插件定义了常用的构建逻辑，能够被重复利用
+Maven 生命周期
+    生命周期指项目的构建过程，它包含了一系列的有序的阶段 (phase)，而一个阶段就是构建过程中的一个步骤。
+Maven 依赖管理
+    maven 坐标能够确定一个项目。换句话说，我们可以用它来解决依赖关系。
+Maven 库
+    当第一次运行 maven 命令的时候，你需要 Internet 连接，因为它要从网上下载一些文件。那么它从哪里下载呢？它是从 maven 默认的远程库(http://repo1.maven.org/maven2) 下载的。这个远程库有 maven 的核心插件和可供下载的 jar 文件。
+
