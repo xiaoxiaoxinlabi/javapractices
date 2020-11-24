@@ -11,5 +11,35 @@ public class ProjectionArea_883 {
 
     public int projectionArea(int[][] grid) {
 
+        int [] row = new int[grid.length];
+        int [] col = new int[grid[0].length];
+        int n = grid.length;
+        int count = 0;
+
+        for(int i = 0; i < n; i ++){
+            int minr = 0;
+            int minc = 0;
+
+            for(int j = 0; j < n; j ++){
+                if(grid[i][j] == 0){
+                    count++;
+                }
+                minr = Math.max(grid[i][j],minr);
+                minc = Math.max(grid[j][i],minc);
+            }
+
+            row[i] = minr;
+            col[i] = minc;
+        }
+        int ans = 0;
+        for(int i : row){
+            ans+=i;
+        }
+        for(int i : col){
+            ans+=i;
+        }
+        ans = ans + n * n - count;
+        return ans;
+
     }
 }
